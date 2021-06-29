@@ -29,7 +29,7 @@ void _find(char* path, char *tar) {
 	} else if(st.type == T_DIR) {
 		struct dirent de;
 		while (read(fd, &de, sizeof(de)) == sizeof(de)) {
-			if (de.inum == 0 || strcmp(de.name, ".") == 0 || strcmp(de.name, "..") == 0) continue;//??? what read() gets, why "." ".."
+			if (de.inum == 0 || strcmp(de.name, ".") == 0 || strcmp(de.name, "..") == 0) continue;//inum == 0 ???
 			char* p = path + strlen(path);
 			*p = '/';
 			strcpy(p + 1, de.name);
